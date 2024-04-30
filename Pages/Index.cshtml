@@ -1,6 +1,6 @@
 ﻿@page
 @model IndexModel
-@{    
+@{
     ViewData["Title"] = "Home page";
 }
 
@@ -9,8 +9,8 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <hr />
     <div>Host operating system: @Model.OSVersion</div>
-    <br/>
-    <br/>
+    <br />
+    <br />
     <h3>Headers</h3>
     <table class="table table-bordered">
         <thead>
@@ -28,4 +28,25 @@
                 </tr>
             }
         </tbody>
+    </table>
+    <br />
+    <br />
+    <h3>Claims</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Claim</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var (key, value) in Model.UserClaims)
+            {
+                <tr>
+                    <td>@key</td>
+                    <td>@value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
